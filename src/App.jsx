@@ -5,35 +5,37 @@ import { useEffect, useState } from "react";
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [advice, setAdvice] = useState([]);
+  const [error, setError] = useState("");
+
+  async function fetchAdvice() {
+    try {
+      setIsLoading(true);
+
+      const res = await fetch(`https://api.adviceslip.com/advice`);
+      const data = await res.json();
+
+      setAdvice(data);
+    } catch (err) {
+      console.error(err);
+      setError(err);
+    } finally {
+      setError("");
+      setIsLoading(false);
+    }
+  }
 
   useEffect(function () {
-    async function fetchAdvice() {
-      try {
-        setIsLoading(true);
-
-        const res = await fetch(`https://api.adviceslip.com/advice`);
-        const data = await res.json();
-        console.log(data);
-
-        setAdvice(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    }
     fetchAdvice();
   }, []);
 
-  console.log(advice);
-
   return (
     <div className="wrapper">
+      {error && <Error />}
       {isLoading && <Loader />}
-      {!isLoading && (
+      {!isLoading && advice && (
         <>
-          <p className="advice__number">Advice &#35;{advice.slip.id}</p>
-          <p className="advice__text">“{advice.slip.advice}”</p>
+          <p className="advice__number">Advice &#35;{advice?.slip?.id}</p>
+          <p className="advice__text">“{advice?.slip?.advice}”</p>
         </>
       )}
 
@@ -48,7 +50,7 @@ export default function App() {
           alt="background"
         />
       </picture>
-      <button onClick={() => setAdvice()} className="dice__box">
+      <button onClick={fetchAdvice} className="dice__box">
         <img src="../public/images/icon-dice.svg" alt="dice" className="dice" />
       </button>
     </div>
@@ -57,4 +59,8 @@ export default function App() {
 
 function Loader() {
   return <p className="loader">Loading...</p>;
+}
+
+function Error() {
+  return <p className="loader">Upps..</p>;
 }

@@ -96,9 +96,11 @@ body {
 
   .dice__box {
     cursor: pointer;
+    background-color: #53ffaa;
+    transition: all 0.2s ease-in-out;
   }
 
   .dice__box:hover {
-    box-shadow: 20px 20px 20px 0px rgba(rgb(83, 255, 170, 0.2));
+    box-shadow: 0 0 11px rgba(255, 255, 255, 0.8);
   }
 }
