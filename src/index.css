@@ -1,0 +1,104 @@
+:root {
+  font-family: "Manrope", sans-serif;
+  line-height: normal;
+  font-weight: 800;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 2.4rem;
+  display: grid;
+  place-items: center;
+  background-color: #202733;
+  height: 100vh;
+}
+
+.wrapper {
+  background-color: #313a48;
+  box-shadow: 30px 50px 80px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  color: #cee3e9;
+  letter-spacing: -0.257px;
+  height: 31.5rem;
+  width: 34.3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4rem;
+  padding: 4rem 2.4rem 6.2rem 2.4rem;
+
+  position: relative;
+}
+
+.advice__number {
+  color: #53ffaa;
+  letter-spacing: 3.457px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.advice__text {
+  text-align: center;
+}
+
+.dice__box {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background-color: #53ffaa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  position: absolute;
+  top: 90%;
+}
+
+/****************************************************/
+/*************** DESKTOP ***************/
+/****************************************************/
+
+@media screen and (min-width: 90em) {
+  body {
+    font-size: 2.8rem;
+  }
+
+  .wrapper {
+    border-radius: 1.5rem;
+    letter-spacing: -0.3px;
+    height: 33.2rem;
+    width: 54rem;
+    gap: 2.4rem;
+    padding: 4.8rem 4.8rem 7.2rem 4.8rem;
+
+    position: relative;
+  }
+
+  .advice__number {
+    letter-spacing: 4.086px;
+    font-size: 1.3rem;
+  }
+
+  .dice__box {
+    cursor: pointer;
+  }
+
+  .dice__box:hover {
+    box-shadow: 20px 20px 20px 0px rgba(rgb(83, 255, 170, 0.2));
+  }
+}
