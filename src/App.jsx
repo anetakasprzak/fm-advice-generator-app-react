@@ -41,17 +41,14 @@ export default function App() {
 
       <picture className="img">
         <source
-          srcSet="../public/images/pattern-divider-desktop.svg"
+          srcSet="./images/pattern-divider-desktop.svg"
           media="(min-width: 90rem)"
         />
-        <source srcSet="../public/images/pattern-divider-mobile.svg" />
-        <img
-          src="../public/images/pattern-divider-mobile.svg"
-          alt="background"
-        />
+        <source srcSet="./images/pattern-divider-mobile.svg" />
+        <img src="./images/pattern-divider-mobile.svg" alt="background" />
       </picture>
       <button onClick={fetchAdvice} className="dice__box">
-        <img src="../public/images/icon-dice.svg" alt="dice" className="dice" />
+        <img src="./images/icon-dice.svg" alt="dice" className="dice" />
       </button>
     </div>
   );
